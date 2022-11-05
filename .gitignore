@@ -30,3 +30,5 @@ build/
 *net45.csproj
 *k10.csproj
 App_Data/
+Packages/
+.vs/
