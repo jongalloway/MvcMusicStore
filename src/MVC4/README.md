@@ -37,7 +37,7 @@ The MVC4 version includes a SQL script file (`MvcMusicStore-Create.sql`) that cr
 
 4. **Execute the SQL Script**
    - In Solution Explorer, right-click on `MvcMusicStore-Create.sql`
-   - Select `Open With...` > `SQL Server Object Explorer` or use any SQL query editor
+   - Select `Open With...` > `SQL Query Editor` (or use any SQL query editor)
    - Alternatively, double-click the file to open it in the SQL editor
    - Update the `USE` statement at the top of the file to point to your LocalDB instance:
      ```sql
@@ -54,11 +54,13 @@ The MVC4 version includes a SQL script file (`MvcMusicStore-Create.sql`) that cr
    - After creating the database, ensure the connection string in `Web.config` points to the correct database:
      ```xml
      <add name="MusicStoreEntities"
-          connectionString="Data Source=(LocalDB)\MSSQLLocalDB;
+          connectionString="Data Source=(LocalDB)\v11.0;
               Initial Catalog=MvcMusicStore;
               Integrated Security=True"
           providerName="System.Data.SqlClient" />
      ```
+   
+   > **Note**: If you're using Visual Studio 2022, you may want to use `(LocalDB)\MSSQLLocalDB` instead of `(LocalDB)\v11.0` for better compatibility with newer versions of LocalDB.
 
 ### Alternative: Automatic Database Initialization
 
@@ -80,18 +82,22 @@ This is handled by the `SampleData` class in `Models/SampleData.cs`.
 The application uses the following connection strings (configured in `Web.config`):
 
 - **MusicStoreEntities**: Main application database for albums, artists, and genres
-  ```
-  Data Source=(LocalDB)\v11.0;
-  AttachDbFilename=|DataDirectory|\MvcMusicStore.mdf;
-  Integrated Security=True
+  ```xml
+  <add name="MusicStoreEntities"
+       connectionString="Data Source=(LocalDB)\v11.0;
+           AttachDbFilename=|DataDirectory|\MvcMusicStore.mdf;
+           Integrated Security=True"
+       providerName="System.Data.SqlClient" />
   ```
 
 - **DefaultConnection**: SimpleMembership database for user authentication
-  ```
-  Data Source=(LocalDb)\v11.0;
-  Initial Catalog=aspnet-MvcMusicStore-20120831200627;
-  Integrated Security=SSPI;
-  AttachDBFilename=|DataDirectory|\aspnet-MvcMusicStore-20120831200627.mdf
+  ```xml
+  <add name="DefaultConnection"
+       connectionString="Data Source=(LocalDb)\v11.0;
+           Initial Catalog=aspnet-MvcMusicStore-20120831200627;
+           Integrated Security=SSPI;
+           AttachDBFilename=|DataDirectory|\aspnet-MvcMusicStore-20120831200627.mdf"
+       providerName="System.Data.SqlClient" />
   ```
 
 > **Note**: MVC4 uses LocalDB v11.0 by default. If you're using Visual Studio 2022, you may want to update the connection strings to use `(LocalDB)\MSSQLLocalDB` instead of `(LocalDB)\v11.0` for better compatibility.
