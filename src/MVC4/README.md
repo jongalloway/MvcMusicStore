@@ -54,9 +54,7 @@ The MVC4 version includes a SQL script file (`MvcMusicStore-Create.sql`) that cr
    - After creating the database, ensure the connection string in `Web.config` points to the correct database:
      ```xml
      <add name="MusicStoreEntities"
-          connectionString="Data Source=(LocalDB)\v11.0;
-              Initial Catalog=MvcMusicStore;
-              Integrated Security=True"
+          connectionString="Data Source=(LocalDB)\v11.0;Initial Catalog=MvcMusicStore;Integrated Security=True"
           providerName="System.Data.SqlClient" />
      ```
    
@@ -84,19 +82,14 @@ The application uses the following connection strings (configured in `Web.config
 - **MusicStoreEntities**: Main application database for albums, artists, and genres
   ```xml
   <add name="MusicStoreEntities"
-       connectionString="Data Source=(LocalDB)\v11.0;
-           AttachDbFilename=|DataDirectory|\MvcMusicStore.mdf;
-           Integrated Security=True"
+       connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MvcMusicStore.mdf;Integrated Security=True"
        providerName="System.Data.SqlClient" />
   ```
 
 - **DefaultConnection**: SimpleMembership database for user authentication
   ```xml
   <add name="DefaultConnection"
-       connectionString="Data Source=(LocalDb)\v11.0;
-           Initial Catalog=aspnet-MvcMusicStore-20120831200627;
-           Integrated Security=SSPI;
-           AttachDBFilename=|DataDirectory|\aspnet-MvcMusicStore-20120831200627.mdf"
+       connectionString="Data Source=(LocalDB)\v11.0;Initial Catalog=aspnet-MvcMusicStore-20120831200627;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-MvcMusicStore-20120831200627.mdf"
        providerName="System.Data.SqlClient" />
   ```
 
