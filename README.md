@@ -2,7 +2,7 @@
 
 *This contains forks of the MVC 3, MVC 4, and MVC 5 versions of the MVC Music Store sample application, built for the .NET Framework. It is intended for illustration purposes. For new applications, we recommend you use modern .NET!*
 
-<img src="https://github.com/user-attachments/assets/5aa786f5-6540-4baf-963e-2303518b0e78">
+<img src="https://github.com/user-attachments/assets/5aa786f5-6540-4baf-963e-2303518b0e78" alt="MVC Music Store application interface showing the homepage with featured albums">
 
 ## About
 
